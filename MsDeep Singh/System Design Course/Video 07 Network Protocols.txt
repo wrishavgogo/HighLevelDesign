@@ -1,1 +1,15 @@
+Check Hussain Nasser OSI model , HTTP protocols and different versions , and TCP and TLS handshake and all , he has explained it best 
+
+Ip Protocol has two things 
+
+1. IP header
+2. Data 
+
+IP header has : 
+
+1. Source IP Address
+2. Destination IP Address 
+3. IP version : IPV4 , IPV6 
+4. IP packet size
+
 
