@@ -1,0 +1,22 @@
+It discusses on L4 and L7 load Balancers : Check Hussain Nasser Folder to get better understanding 
+
+
+We know L4 does not contain much of the information and does not have much details 
+
+L7 -> works at application level and decrypts all data , reads the content and makes the decision on that basis 
+L4 -> does not know much , just maybe do round Robin , or least TCP connections whichever server has will direct it to that 
+
+Few Algorithms of Load Balancers :- 
+
+1. Round Robin : Normal Directing of traffic , 1st server1 , 2nd server2 , 3rd server3 , 4th server1 , 5th server2 , 6th server 3 , .... so on 
+2. Weighted Round Robin : Lets say server1 -> weight = 1 , server2 -> weight = 3 , server3 -> weight = 1 
+server1 ( 1st request) , server2 ( 2nd request , 3rd request , 4th request) , server3 -> ( 5th request ) 
+This algo was brought in place so that , each server might have different size and different handling capabilities . 
+3. Least Connections : Since weighted Round robin may overload a particular , another approach is whichever Server has least number of current connections with 
+direct the traffic to that , to distribute load 
+
+
+Load Balancer : 
+
+Security : Firewall ( hides the private network of the server completely ) . 
+Distributing traffic , Scalabilitity
