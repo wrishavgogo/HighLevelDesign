@@ -1,1 +1,2 @@
 Design Data Intensive Application , Replication Chapter is there , read that 
+Made notes of that chapter in DataIntensive Applications see the PDF 
