@@ -1,0 +1,15 @@
+Lets say that 3 servers , s1 , s2 and s3 .
+
+
+Lets say we want to build a 100 % consistent and available server .
+
+Imagine if s3 fails , and since we are wanting to keep our server Consistent and available , we do not check or fix s3 . We do not engage any server to communicate with s3 
+to fix it . 
+Now Requests coming to s3 are not handled and s1 and s2 dont have updated data .
+Hence our system is loosing consistency anyway 
+
+**** We cannot compromise on Partition Tolerance . We always need P 
+Now we have to decide on Availability and Consistency . 
+
+In Transactional Db : Bank Servers . Consistency is very imp . Hence Bank servers are down for sometime for maintainanace purpose 
+In Other application , like streaming services : Availability is always very important . Some consistency can be compromised in this case 
