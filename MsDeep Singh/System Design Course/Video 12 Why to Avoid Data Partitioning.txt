@@ -1,0 +1,5 @@
+Proper partitioning is required : Read data intensive applications to properly know which partitioning is best . 
+
+In Partitioning , it might happen that data is stored in two different partitions and we require to query both and merge them 
+
+Conclusion : Database partitioning is the last resort , when we have tried everything and still we need more optimisation . 
