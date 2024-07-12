@@ -1,0 +1,7 @@
+Both are using Hybridly in today's world 
+
+
+1. Vertical Scaling can have down Time , but not horizontal Scaling 
+2. Data Inconsistency not in vertical Scaling , but present in Horizontal Scaling 
+3. Resiclency and Fault Tolerance : Since point of failure in Vertical Scaling , but not the case in Horizontal Scaling 
+4. Complexity :- Less complex in single machine in Vertical Scaling , but complex in horizontal Scaling 
