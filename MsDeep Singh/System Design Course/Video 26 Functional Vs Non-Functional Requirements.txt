@@ -1,0 +1,16 @@
+Lets say we are designing Netflix 
+
+
+Functional Requirements : 
+
+1. Streaming Platform 
+2. Uploading videos
+3. Multiple Devices can access it 
+
+
+Non-Functional Requirements : These are those requirements which are basically describing it to use , that to what extent we can support Functional Requirements 
+
+1. Availability 
+2. Scaling 
+3. Latency 
+
