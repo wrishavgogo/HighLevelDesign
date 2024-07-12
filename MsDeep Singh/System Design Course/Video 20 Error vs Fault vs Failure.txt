@@ -1,0 +1,21 @@
+
+Lets say there is a mail service , few api it has exposed to client 
+
+/get/inbox?userId="abc"
+/get/sentItems?userId="abc"
+
+
+Error : 
+
+User calls /get/inbox api 
+and server shared the results of /get/sentItems 
+
+this is called an error 
+
+Fault & Failure :
+
+If gmail server crashes or we are not getting proper response 
+then 
+
+Fault at Server End 
+Failure at User End 
