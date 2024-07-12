@@ -1,0 +1,33 @@
+
+
+Suppose there is a user and there is a newsFeed server 
+
+
+Short Polling : 
+
+The user sends a request to the user every 1 min , to get updates of the Euro Cup final 
+
+User sends request -> if there is an update the server sends back a response 
+User sends request -> if there is no update the server gets an empty response 
+
+This is called short polling .
+
+
+Long Polling :
+
+Another scenrio is when the user Sends a request and there is no new update 
+Then the server does not close the tcp connection . It keeps the connection open for a certain KeepAlive Time 
+and when there is any response available , it sends it directly to the client .
+If within the KeepAliveTime the server does not have any update , it sends a TimeoutException .
+
+In Long Polling , we have reduced a lot of cycles and connection creation and we have increased the bandwidth from ShortPolling 
+
+WebSockets : 
+
+Bidirectional Connection , used for chatting or online gaming . 
+We have connections open among the users and the server . 
+The server can directly send message to client and even the client can directly send message to the server . 
+
+
+
+We will study more about this topics from Hussain Nasser 
