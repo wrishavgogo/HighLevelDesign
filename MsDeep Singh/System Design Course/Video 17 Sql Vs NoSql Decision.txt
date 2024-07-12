@@ -1,0 +1,38 @@
+Many Parameters are there to decide on which Database to use 
+
+
+
+1. Relationships 
+
+If in our design relation exists then we should prefer Sql 
+If no relation is their in our design then we should go for No Sql 
+
+If there was a relation already present and we still preferred to go for NoSql then application needs to handle that , which is an addded overhead . 
+
+2. Type of Schema 
+
+If Schema is Dynamic ( We dont know in future if we might need to alter schema ) -- No Sql wins 
+If Schema is Static --> Sql wins here , if the schema is altered in Sql then we need to migrate the full database again 
+
+3. Scalability 
+
+Horizontal Scaling : No Sql databases are designed keeping in mind that data will be huge and Horizontal Scaling will be required . NoSql has built in Horizontal Scaling 
+Vertical Scaling : In Sql ,  initially db grows in size (it is vertically scaled up ) . But vertical scaling only happens to a limit . If it happens beyond that , 
+then we will need to introduce horizontal scaling . But Sql does not support horizontal Scaling / Partitioning by default . Application or Adminstrator has to take care of it 
+
+4. ACID Properties 
+
+SQL : By default are added . If you want to build a system which is ACID complaint , then go for SQL
+No Sql : Does not adhere to ACID properties 
+
+5. Cost 
+Discuss with interviewer how Cost is being estimated , Upon the data or the traffic you are serving 
+
+6. CAP theorem 
+
+We saw that we cannot let go of Partition Tolerance , We need Partition Tolerance 
+
+CA -> debate 
+
+C -> SQL db's tend to be more consistent and less Available 
+A -> No SQL db's tend to be more Available and less consitent ( Eventual Consistency ) 
