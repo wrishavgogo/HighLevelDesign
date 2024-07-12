@@ -1,0 +1,32 @@
+
+Read Designing DataIntensive Applications Book 
+
+Partitioning : Beyond a certain point we cannot scale the system vertical , so we decided on storing the database details on multiple parts of the DB , Each partition will have 
+some data , and when we combine those partitions we get the whole data . 
+
+
+
+
+1. Horizontal Partitioning / Sharding :- We are taking a big table and we are partitioning it by taking the top 10 rows in 1 partition , the next 10 rows in 2nd partition 
+and so on . Since its row wise partitioning , so we call it Horizontal Partitioning . Table Schema remains as it is . 
+But this requires proper Horizontal Partitioning and partition keys so that we are able to find the accurate partition fast 
+
+2. Vertical Partitioning : We have to partition the data by column ids 
+
+Original Table has columns : (userId , Name , Intro , DOB) 
+
+Db1 --> (userId , Name , Intro)
+Db2 --> (userId , DOB)
+
+Disadvantage : 
+
+If someone requests for both (Name , Intro ) and (DOB) for the user in that case we will have to perform a query join . Read Latency increases 
+
+3. Directory Based Partitioning : We have a lookup service basically knows which partition has what data . Its basically like a zookeeper or routing - tier 
+
+
+Partitioning Criterias :-- Refer to PDF in data intensive applications 
+
+Hash-Based Partitioning 
+Hash-key Range 
+Round Robin Partitioning - huge read latency 
