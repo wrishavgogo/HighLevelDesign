@@ -1,0 +1,33 @@
+
+What is Cascading Failure ? 
+
+Cascading Failure is kind of a domino effect , if one server fails in the machine , then it makes the next server fail 
+and so on and the whole system crashes . 
+It can happen on the backend , it can happen on the database 
+
+
+
+How to avoid Cascading Failures ? 
+
+1. 1st way is that whichever node has gone down , you do not need to server customers whose traffic is directed to that node .
+By this we avoid other nodes taking the extra load . 
+
+2. Using Chaos Engineering , catch the issue before hand and have backup services to handle load 
+
+3. The requests which are routed to failed server . Do not cancel them , instead hold them in  a request queue . 
+And we ensure that load on servers is not very high and have specified TPS only . 
+When some server is free or does not have that much load it can handle request 
+
+4. Configuring a proper retry service . Retries should not be such that it increases overal TPS of the service . 
+Configuration should be such that it does not add load on existing working servers .
+
+5. Configuring Rate Limiting : So that we do not overburden the system and accept only the TPS 
+
+6. Caching
+
+7. Using Proxy : To filter out wrong requests 
+
+8. Reducing Application Server Startup time 
+
+9. Identification of Critical and Non Critical Services . Try bringing up servers of Critical services first and then non- critical . 
+Divide them across microservices and handle them separately 
