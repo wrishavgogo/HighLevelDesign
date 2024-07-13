@@ -1,0 +1,55 @@
+
+Before rolling out any change directly to production , 
+We can roll it out to the canary pods , which is basically the pods which server only few amount of live traffic . suppose 8% . We rollout traffic to this cluster and see if we are 
+seeing any issues and any problems or not . If we see any issue we can roll back the deployment 
+
+
+Blue Green Deployments : 
+
+
+Blue-green deployments are a strategy for releasing software updates with minimal downtime and risk. This method involves maintaining two identical production environments, called "blue" and "green." Here’s a detailed explanation:
+
+Initial State:
+
+The "blue" environment is the live production environment serving all user traffic.
+The "green" environment is an exact copy of the blue environment but not live.
+
+Deploying Updates:
+
+Deploy the new version of the application to the green environment.
+Thoroughly test the new version in the green environment to ensure it works as expected without affecting the users.
+
+
+Switching Traffic:
+
+Once the green environment is verified to be working correctly, switch the user traffic from the blue environment to the green environment. This can be done via a load balancer or DNS switch.
+Now, the green environment becomes the live production environment.
+
+
+Fallback Plan:
+
+The blue environment remains unchanged and can serve as an immediate fallback in case something goes wrong with the green environment.
+If any issues are detected after the switch, traffic can be quickly switched back to the blue environment, minimizing downtime and disruption.
+
+
+Cleanup and Repeat:
+
+After a successful deployment and verification period, the blue environment can be updated to match the green environment. This prepares it for the next deployment cycle.
+The process can be repeated for future updates, with the roles of blue and green switching as needed.
+
+Advantages of Blue-Green Deployments:
+Minimal Downtime: Traffic is switched almost instantaneously, leading to minimal or no downtime for users.
+Quick Rollback: If issues arise, rolling back to the previous stable version is quick and straightforward.
+Isolated Testing: The new version can be tested in a production-like environment without affecting users.
+Improved Reliability: Reduces the risk associated with deploying new versions since the old version remains intact until the new one is proven stable.
+
+Challenges : 
+Infrastructure Costs: Maintaining two identical production environments can be costly.
+Complexity: Managing and synchronizing two environments requires careful planning and orchestration.
+
+Use Cases:
+Web Applications: Ideal for applications where downtime is critical, such as e-commerce platforms.
+Microservices: Works well in microservices architectures where services can be independently deployed and tested.
+
+
+
