@@ -1,0 +1,23 @@
+
+
+Chaos Engineering is basically Stress Testing , 
+
+My Application should be able to handle 20X more load then whatever is the expected load during peak hours
+
+You Should aware of Critical and Non-Critical services of your system 
+
+Lets take example of Netflix :-
+
+Clicking on a movie and it should play : Critical 
+Recommended Movies : Non Critical  
+
+
+By Chaos Testing , we can check if our timeouts and configs are properly setup or not . You remember the walmart's chaos testing 
+where they introduced Network delay and traffic was not moving out of the region which had delay . 
+This was due to execesively long timeout set of readinessProbe and liveliness Probe with huge threshold 
+
+
+We can have alerts and metrics configured to keep an eye on issues so that we can handle incidents before hand 
+
+
+While we deploy anything , we shall be minimising the blast radius . 
