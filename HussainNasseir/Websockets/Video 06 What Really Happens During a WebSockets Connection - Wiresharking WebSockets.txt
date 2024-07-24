@@ -1,0 +1,54 @@
+Amazing video giving in-depth idea of websocket , full cream of the the protocol 
+
+
+In this video Hussain used WireShark as his client , 
+and since this wireshark shares a log of what happened exactly and at what time , 
+so we get to know exactly the processes of What Really Happens During Websocket Connection 
+
+
+First we see 3 tcp calls ( 3 way tcp handshake ) ---> we will read about this in other playlist 
+
+1st connection Tcp1 :  Client sends server hello , with list of algorithms for Handshake TLS/SSL
+2nd connection Tcp2: Server sends ACK to client 
+3rd connection Tcp3 : Client sends server ACK , that it got the server's ACK 
+
+-----------------------------------  3 - Way Handshake Done ---------------------------------------------
+
+
+4th connection GET HTTP 1.1 : This is basically the UPGRADE header sent to server for upgrading to websocket protocol 
+5th connection TCP Server Responds with ACK (just acknowledging that it got the request to upgrade) 
+6th connection HTTP : after sometime server responds with Switching Protocols 
+7th connection HTTP : client sends ACK to server that it now knows protocols are switching 
+
+----------------------------------- Protocol Switching is complete  ---------------------------------------
+
+8th connection WEBSOCKET PING : the server pings the client ( are you alive ??)
+9th connection TCP : the client responds with an ACK that it got the Websocket ping from the server 
+10th connection WEBSOCKET PONG : the client sends a pong to the server ( server now knows it can chat ) 
+
+
+
+----------------------------------- Websocket Ping Ponging Complete -------------------------------------
+
+
+----------------------------------- Normal Chatting begins -------------------------------------
+
+1. Websocket server sends message 
+2. Clients responds with a TCP Ack ( this can be used in whatsApp's blue tick or double tick ,  imp for system Design Interview ) 
+3. Client might respond with a message (Websocket ) 
+4. For which server sends an Ack 
+
+
+----------------------------------- Closing the Websockt connection -------------------------------------
+
+Lets say client closed the connection 
+
+1. Client sends Websocket.close() to server 
+2. Server sends ack that it has received the message 
+3. Server sends Websocket.close() back to client 
+4. Client sends ack that it has received the .close() from the server 
+
+----------------------------------- Closing the TCP connection through which both parties were chatting -------------------------------------
+
+Whichever party closes the websocket connection , the opposite party is responsible for closing the tcp connection 
+
