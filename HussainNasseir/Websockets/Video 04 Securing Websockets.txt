@@ -1,0 +1,5 @@
+WebSockets can be made secure , by making load balancers to direct traffic to Port 443 , 
+Traffic goes to port 443 , when it requires secure connection . SSL 
+
+Similarly for HTTPS , WSS ( websocket secure) we use 443 for TLS and SSL ,
+This can be configured in the load Balancer 
