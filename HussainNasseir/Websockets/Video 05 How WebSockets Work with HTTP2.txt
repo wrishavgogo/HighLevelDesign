@@ -1,0 +1,15 @@
+
+
+If there is HTTP 2 connection in the server configured , 
+and we know that HTTP 2 uses multiplexing , 
+So it uses multiple streams or rather channels 
+
+If in one of the requests the client sends the UPGRADE header , to websocket 
+Then that particular stream out of all the streams becomes reserved for websocket communication between and client and the server only 
+On the same TCP connection , 1 stream/channel will be just for websockets , other streams assigned for post and put requests 
+
+Tomcat 10 (not production ready for now) implements websocket 2.0 i.e. websocket over HTTP/2. Web Firm Framework uses websocket for all of its server client communication.
+
+It's referred from 
+https://tomcat.apache.org/whichversion.html & 
+https://tomcat.apache.org/tomcat-10.0-doc/web-socket-howto.html 
