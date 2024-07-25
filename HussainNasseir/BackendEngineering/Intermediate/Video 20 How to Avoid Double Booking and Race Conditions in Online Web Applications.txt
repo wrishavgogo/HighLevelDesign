@@ -2,3 +2,6 @@
 Here in this video we saw the problem of double booking , 
 
 So we used Shared - Exclusive Lock to fix the problem 
+
+Suppose the process which is waiting to acquire the lock , 
+is waiting when the seat is booked and is waiting to timeout 
