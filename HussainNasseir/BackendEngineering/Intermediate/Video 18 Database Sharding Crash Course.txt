@@ -1,0 +1,18 @@
+Hussain literally showed using NodeJs and postgress how we can implement sharding 
+There is a library in nodeJs called "consistent-hash" , which lets us do consistent hashing on the nodes we have provided 
+
+Rest on sharding , we have read about it a lot 
+
+Pros Of Sharding :
+
+1. Scalability in terms of both Data and memory 
+2. Security : User can access certain shards 
+3. Optimal : Since partitions are small hence the index sizes are small 
+
+Cons of Sharding :
+
+1. Cross Shard transactions becomes difficult since 
+2. Rolling back of transactions that too among multiple shards become difficult 
+3. Schema changes are hard , as multiple servers need transactions 
+4. Joins become very tricky , as there are network calls involved in querying multiple shards for joining 
+5. If we don't know the key and we query on some other value , then we are forced to query all the shards 
