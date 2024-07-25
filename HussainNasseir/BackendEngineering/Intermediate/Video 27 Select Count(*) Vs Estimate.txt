@@ -1,0 +1,13 @@
+
+In Databases , incase its a very large table 
+
+If we do , Select Count(*) from table ---> 2 mins time 
+
+If we do , estimate Count(*) from tble ---> 154 ms 
+
+The count might be off by 100k , but in some applications it does not matter 
+Lets say some celebrity wants to see the amount of likes their post has gotten . 
+They will be seeing 3.1 M , but differ of 3.13 M and 3.14M is insignificant in this case 
+
+In the video Hussain Showed the same thing , 
+He uses the database connection pools , to get ranges of data , mutiple calls are made in parallel 
