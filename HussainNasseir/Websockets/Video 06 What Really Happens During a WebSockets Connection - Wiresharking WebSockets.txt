@@ -8,7 +8,7 @@ so we get to know exactly the processes of What Really Happens During Websocket 
 
 First we see 3 tcp calls ( 3 way tcp handshake ) ---> we will read about this in other playlist 
 
-1st connection Tcp1 :  Client sends server hello , with list of algorithms for Handshake TLS/SSL
+1st connection Tcp1 :  Client sends server hello , Synchronisation between server and client happens 
 2nd connection Tcp2: Server sends ACK to client 
 3rd connection Tcp3 : Client sends server ACK , that it got the server's ACK 
 
