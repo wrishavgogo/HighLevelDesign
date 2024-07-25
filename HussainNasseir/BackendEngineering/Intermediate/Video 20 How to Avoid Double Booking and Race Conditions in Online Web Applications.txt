@@ -1,0 +1,4 @@
+
+Here in this video we saw the problem of double booking , 
+
+So we used Shared - Exclusive Lock to fix the problem 
