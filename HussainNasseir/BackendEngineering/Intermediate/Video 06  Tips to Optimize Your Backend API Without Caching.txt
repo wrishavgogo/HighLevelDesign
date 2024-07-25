@@ -1,0 +1,54 @@
+
+
+1. Representation 
+
+We can represent data in multiple forms for transfering , but data when received at server end 
+requires deserialisation and serialisation while sending , this takes lots of time . So this can be optimised 
+
+XML takes highest time , JSON is okayish , Protocol Buffer takes minimum time 
+
+
+2. Preheating Connections 
+
+If for each request a newly created TCP request is required , then lot of time is gone in TCP 3 way handshake , TLS security . 
+So instead we can have a pool of tcp connections ready in the first place , so additional cost is not incurred during request serving 
+
+
+3. Consider HTTP2 
+
+Gives parallelisation in the same tcp connection , (Multiplexing)
+
+
+4. Proxies 
+Whether they are loadbalancers , caching layer , normal Proxies , so try to avoid latency issues there 
+you can prefer L4 LB over L7 LB so that fast processing happens and lower latency is there 
+
+
+5. Avoid Large Payloads 
+Try to keep the response payloads small 
+
+6. Avoiding TCP Meltdown 
+Let's see first what is TCP meltdown 
+
+TCP Meltdown Explained
+Scenario:
+TCP meltdown typically occurs in environments where:
+Multiple Congestion Control Mechanisms: Both the transport layer (TCP) and the application layer (e.g., HTTP/2) implement their own congestion control mechanisms.
+Multiplexing: The application layer protocol (e.g., HTTP/2) multiplexes multiple streams of data over a single TCP connection.
+Mechanism:
+Congestion Control in TCP:
+
+TCP manages congestion control using algorithms like TCP Reno or TCP Cubic, which adjust the rate of data transmission based on network congestion signals (e.g., packet loss or delay).
+TCP operates on a per-connection basis, controlling the flow of data for the entire connection.
+Application Layer Congestion Control:
+
+HTTP/2, for example, multiplexes multiple streams of data over a single TCP connection.
+HTTP/2 implements its own flow control and prioritization for these streams, managing the flow of data independently for each stream.
+
+Problem:
+1. Interaction Between Layers: When congestion occurs, TCP will reduce the transmission rate for the entire connection. However, HTTP/2 might not be aware of the specific streams causing congestion and will continue to send data for multiple streams.
+2. Inefficiency: TCP's congestion control reduces the overall transmission rate, affecting all streams multiplexed over the connection. This can lead to a scenario where the application layer protocol's efforts to control congestion and prioritize streams are overridden by TCP’s broader actions.
+3. Head-of-Line Blocking: If a single stream experiences congestion, it can cause delays for all other streams multiplexed over the same connection, as TCP reduces the rate for the entire connection.
+
+
+Because of the congestion control on one of the streams of the TCP connection , the whole of the TCP enables congestion control and all the streams have to suffer 
