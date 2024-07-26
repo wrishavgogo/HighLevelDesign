@@ -1,0 +1,18 @@
+
+Replication : 
+
+
+We read about this topic in detail in Designing Data Intensive Applications 
+
+Its discussed Master-Slave , Multi-Master Replication , aysnc and sync Replication 
+
+Pros 
+
+1. Horizontal Scaling 
+2. Region Based queries 
+
+Cons 
+
+1. Eventual Consistency 
+2. Slow Writes(synchronous)
+3. Complex to implement ( multiple-master) 
