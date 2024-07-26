@@ -1,0 +1,22 @@
+
+
+Stateless Application are very easy to horizontally scale , and we dont have to maintain any session , 
+However at the same time we loose the oppurtunity the cache the results in the locality . 
+If we cache it for one request , it does not guraantee , the request will be direct to the same machine 
+eg HTTP
+
+Statefull Application on the other hand are difficult to scale because of this property , as we have to maintain a session 
+However this provides us the ability to utilise localized caching . You want every request to go to same machine ( sticky session ) 
+eg tcp,gRPC , Websockets
+
+
+
+HTTP is a stateless protocol , but it is built on top of TCP ( stateful protocol ) . 
+TCP maintains state , but HTTP specifically mentions not to mention state to the connection . So that it can freely flow from anywhere 
+
+gRPC is a stateful protocol , it is built on top of HTTP/2 (stateless protocol) 
+HTTP/3 --> stateless protocol built on top of QUIC ( stateful protocol ) which in turn is built on UDP ( stateless protocol ) 
+
+
+Reverse Proxy can be utilised to send HTTP requests to a certain host always . 
+So making HTTP using reverse Proxy into stateful application . 
