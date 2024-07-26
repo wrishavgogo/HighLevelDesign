@@ -1,0 +1,34 @@
+
+Index Scan v/s Index Only Scan 
+
+Lets take an example of a table schema 
+
+Grades Table :
+
+id |  name | subject | grade 
+
+
+if we create an index on id , 
+
+
+In Index Scan , 
+
+
+
+create index(id) in Grades;
+Select name from Grades where id = 7 ; 
+
+Using the index table , it goes the index very fast , 
+but name column is not stored in the index , so it has to go the reference row in the table  to fetch the name 
+ETA : 1.245 ms 
+
+In Index Only Scan , 
+
+create index idx on grades(id) include name ;
+
+this basically says to include the name column for each id along with the id , in the index itself 
+so we dont need to go to the the reference row in the table 
+
+Select name from Grades where id = 7 ;  
+
+ETA 0.125 ms , because name is stored in the index itself 
