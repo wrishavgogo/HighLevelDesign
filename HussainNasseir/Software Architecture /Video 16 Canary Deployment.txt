@@ -1,0 +1,3 @@
+
+Its like exposing 8% of the traffic to new application server , or to a new deployment 
+Canary Deployment 
