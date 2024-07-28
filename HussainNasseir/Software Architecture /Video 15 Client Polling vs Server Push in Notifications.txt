@@ -1,0 +1,5 @@
+
+
+Client Polling : Server asks for updates , [ Watch more about this on MsDeepSingh Videos] 
+Server Push : As soon as server gets the info , it wants to push the message to the client 
+
